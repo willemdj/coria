@@ -12,8 +12,9 @@
       <h1>Making songs available via Coria</h1>
       <p class="lead">This is a demo of two ways to make practice material available for your choir via Coria.</p>
 
-      <p>For both of these two ways you need to have a website of some kind and of course 
-      you need to have the song or songs that you want to share in format that is supported by coria.</p>
+      <p>For both of these two ways you need to have a website of some kind.
+      You also need to have the song or songs that you want to share in format
+      that is supported by coria.</p>
 
       <p>The website can be very simple. This example uses github pages, which is free. But if your choir has its own
       website you should be able to use that.</p>
@@ -21,14 +22,53 @@
       <p>The formats that are supported by coria are musicXML and Noteworthy
       Composer format.  A popular free option to create musicXML is Musescore.
       Many musicXML files for choral music can be downloaded from the site
-      cpdl.org. Noteworthy composer files can be created using the tool
+      cpdl.org. Noteworthy composer (NWC) files can be created using the tool
       Noteworthy Composer.</p>
 
-      <h2>Method 1: publishing song as web-pages</h2>
+      <h2>Method 1: publishing songs as web-pages</h2>
+      <p>For this example the music file has been converted to a .html file.
+      This .html file needs to be placed onto a webserver, and you can simply
+      link to it.</p>
+
+      <p>You can convert a music file (MusicXML or NWC) using the coria website
+      (https://coria.nl). </p>
+      <ol>
+        <li>Select the option "Use your own file" ("Gebruik eigen
+          bestand", in Dutch);</li>
+        <li>select the file that you want to convert;</li>
+        <li>select one of the voices (it doesn't matter which one), and press "play";</li>
+        <li>ensure that the result is what you expected;</li>
+        <li>select the option "download file for distribution (html format);</li>
+        <li>put the html file on your webserver and communicate a link to it. You can use a link from your website, but it could also be a link in an email.</li>
+      </ol>
+
+      <p>In this particular example the downloaded file was placed on this same
+      webserver, in the "music" folder. So the link below is a relative link. In the html source file for
+      this page it looks like this: <code>&lt;a href="music/Matona_mia_cara.html">Matona mia cara&lt;/a></code></p>
+
       <p>Example: <a href="music/Matona_mia_cara.html">Matona mia cara</a></p>
 
+      <p>This method has an advantage over method 2 below: If your website
+      supports it, you can put the html page in section of the website that
+      requires the user to log in. That way you can manage who has access to
+      the page. With option 2 that is not possible, bacause coria must be able
+      to access the music file, so the url pointing to the musicfile must be 
+      publicly available.</p>
+
+
       <h2>Method 2: linking to song files</h2>
-      <p>Example: <a href="https://coria.nl/play_from_url?url=https://willemdj.github.io/coria/music/Lassus_Matona_mia_cara.xml&back=coria.nl">Matona mia cara</a></p>
+      <p>The alternative to creating the self contained html file, is to publish the source music file, aswell as a link to coria that refers to the source file.</p>
+
+      <p>Such a link could look like this: <code>&lt;a href="https://coria.nl/play_from_url?url=https://willemdj.github.io/coria/music/Lassus_Matona_mia_cara.xml">Matona mia cara&lt;/a></code>. The first bit of the link, <code>https://coria.nl/play_from_url</code>, refers to a special coria page. This page will take everything that comes after the <code>&amp;</code> character and interpret it as a link to a music file. It uses the link to fetch the file, translates it so that coria can use it, and enables the user to play the piece.</p>
+
+      <p>Example: <a href="https://coria.nl/play_from_url?url=https://willemdj.github.io/coria/music/Lassus_Matona_mia_cara.xml">Matona mia cara</a></p>
+
+      <p>In most cases, method 1 above is preferable over this method. With method 1 you can put the page in a protected area of your website, and you don't have to make the source file (MusicXML or NWC file) publicly available. However, there may be cases where this second option is less work, for example if publication of the music files to everybody who might be interested is the main goal of your website.</p>
+
+      <h2>About the setup of this demo</h2>
+      <p>The source files for this little demo website are available on GitHub: <a href="https://github.com/willemdj/coria">https://github.com/willemdj/coria</a>.</p>
+      <p>The website is hosted using GitHub Pages (<a href="https://pages.github.com/">https://pages.github.com/</a>). It can be reached using <a href="https://willemdj.github.io/coria/">https://willemdj.github.io/coria/</a>.<p>
+       
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
